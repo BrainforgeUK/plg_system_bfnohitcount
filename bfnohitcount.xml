@@ -19,7 +19,7 @@
 
 	<files>
 		<filename plugin="bfnohitcount">bfnohitcount.php</filename>
-    <filename>bfisrobot.xml</filename>
+        <filename>bfnohitcount.xml</filename>
 	</files>
 
   <config>
