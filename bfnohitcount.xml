@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+* @package   Plugin for preventing recording of article hits.
+* @version   0.0.1
+* @author    https://www.brainforge.co.uk
+* @copyright Copyright (C) 2019 Jonathan Brain. All rights reserved.
+* @license	 GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+-->
+<extension version="3.5" type="plugin" group="system" method="upgrade">
+  <name>System - bfnohitcount by BrainforgeUK</name>
+  <creationDate>June 2019</creationDate>
+  <author>Jonathan Brain</author>
+  <authorEmail>brainforge@btinternet.com</authorEmail>
+  <authorUrl>https://www.brainforge.co.uk</authorUrl>
+  <copyright>Copyright 2019 Jonathan Brain. All rights reserved.</copyright>
+  <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+  <version>0.0.1</version>
+  <description>Plugin for preventing recording of article hits.</description>
+
+	<files>
+		<filename plugin="bfnohitcount">bfnohitcount.php</filename>
+    <filename>bfisrobot.xml</filename>
+	</files>
+
+  <config>
+    <fields name="params">
+        <fieldset name="basic">
+            <field name="nohitcount_crawlers" type="radio" class="btn-group"
+                   label="Crawlers" default="0"
+                   description="">
+                <option value="0">JDEFAULT</option>
+                <option value="1">No hit counting</option>
+            </field>
+            <field name="nohitcount_usergroups" type="usergrouplist"
+                   label="JGLOBAL_FILTER_GROUPS_LABEL"
+                   description="This sets the user groups where you don't want hits to be counted."
+                   multiple="true" />
+            <field name="nohitcount_ipaddresses" type="textarea"
+                   label="IP Addresses"
+                   description="Comma separated list of client IP addresses where you don't want hits to be counted." />
+        </fieldset>
+
+        <fieldset name="advanced">
+            <field name="additional-crawlers" type="textarea"
+                   label="Additional Crawlers"
+                   description="Comma separated list of text to identify additional crawlers not in the default list." />
+ 		</fieldset>
+    </fields>
+  </config>
+
+  <updateservers>
+    <server type="extension" priority="1" name="System - bfnohitcount by BrainforgeUK">
+    	https://brainforge.co.uk/component/bfupdater?element=plg_system_bfnohitcount.xml
+	</server>
+  </updateservers>
+</extension>
