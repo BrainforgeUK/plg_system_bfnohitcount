@@ -187,7 +187,7 @@ class plgSystemBFnohitcount extends JPlugin
           $dns = dns_get_record(substr($ipaddress, 1) . '.');
           foreach($dns as $record)
           {
-            if ($clientip == @$record->ip)
+            if ($clientip == @$record['ip'])
             {
               return true;
             }
