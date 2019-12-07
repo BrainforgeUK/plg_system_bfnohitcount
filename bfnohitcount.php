@@ -184,12 +184,14 @@ class plgSystemBFnohitcount extends JPlugin
         $ipaddress = strtolower($ipaddress);
         if (strpos($ipaddress, '@') === 0)
         {
-          $dns = dns_get_record(substr($ipaddress, 1) . '.');
-          foreach($dns as $record)
+          if (($dns = dns_get_record(substr($ipaddress, 1) . '.')) !== false)
           {
-            if ($clientip == @$record['ip'])
+            foreach($dns as $record)
             {
-              return true;
+              if ($clientip == @$record['ip'])
+              {
+                return true;
+              }
             }
           }
         }
